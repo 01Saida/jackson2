@@ -7,6 +7,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 public class FirstClass {
 
 	public static void main(String[] args) {
@@ -56,48 +61,20 @@ public class FirstClass {
 
 }
 
-
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
 class User {
 	
-	public User(String string, String string2, int i) {
-		// TODO Auto-generated constructor stub
-		this.setFirstName(string);
-		this.setLastName(string2);
-		this.setAge(i);
-
-	}
-	
 	public User(String string, String string2, int i, Address address2) {
-		// TODO Auto-generated constructor stub
-	}
-
-	@JsonProperty("firstName")
-	public String getFirstName() {
-		return firstName;
-	}
-	@JsonProperty("firstName")
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	public Integer getAge() {
-		return age;
-	}
-	public void setAge(Integer age) {
-		this.age = age;
+		this.firstName = string;
+		this.lastName = string2;
+		this.age = i;
+		this.address = address2;
 	}
 	
-	@JsonProperty("firstName")
 	private String firstName;
 	private String lastName;
 	private Integer age;
 	private Address address;
-	
 	
 }
 
@@ -109,33 +86,9 @@ class Address {
 	private String zipCode;
 	
 	public Address(String string, String string2, String string3, String string4) {
-		// TODO Auto-generated constructor stub
-		
+		this.street = string;
+		this.city = string2;
+		this.state = string3;
+		this.zipCode = string4;
 	}
-	public String getStreet() {
-		return street;
-	}
-	public void setStreet(String street) {
-		this.street = street;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	public String getZipCode() {
-		return zipCode;
-	}
-	public void setZipCode(String zipCode) {
-		this.zipCode = zipCode;
-	}
-
-
 }
